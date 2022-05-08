@@ -81,11 +81,15 @@
 	<a href="#contact">Run</a>
   </div>
 
+  <div id="hasil_search">
+
+  </div>
+
   <div class="beritaList">
 
   </div>
 
-    {{-- @foreach ($data as $item)
+    <!-- {{-- @foreach ($data as $item)
     <div class="berita-box">
 		<p>Creator : {{ $item->author->name }}</p> ini gabisa bang 
         <p ><b>{{ $item->topic }}</b></p>
@@ -107,13 +111,14 @@
 		</script>
         <p>{{ $item->status_like }}</p>
     </div>
-	@endforeach --}}
+	@endforeach --}} -->
 	
 @endauth
 </div>
 	
 <script>
-	$(document).ready(function(){
+
+$(document).ready(function(){
 		$.ajax({
 			url: 'api/articles',
 			type: 'GET',
@@ -122,6 +127,67 @@
 
 				// console.log(data.data)
 				var beritaList = document.getElementsByClassName('beritaList')[0]
+				data.data.forEach(element => {
+					// console.log(element)
+					
+					
+					var berita_box = document.createElement('div')
+					berita_box.className = 'berita'
+					
+					var img = document.createElement('img')
+					img.src = "{{ URL::to('/') }}/gambar/"+element.gambar
+					img.width = '400'
+					berita_box.appendChild(img)
+					
+					var creator = document.createElement('p')
+					creator.innerHTML = 'Creator : ' + element.author.name
+					berita_box.appendChild(creator)
+
+					var judul = document.createElement('h4')
+					judul.innerHTML = element.judul
+					berita_box.appendChild(judul)
+
+					var selengkapnya = document.createElement('a')
+					selengkapnya.innerHTML = 'Selengkapnya'
+					selengkapnya.href = '/article/id/'+element.id
+					berita_box.appendChild(selengkapnya)
+
+					var isi = document.createElement('p')
+					isi.innerHTML = element.isi
+					berita_box.appendChild(isi)
+
+					var like = document.createElement('a')
+					like.innerHTML = element.total_like
+					like.href = '/like/'+element.id
+					berita_box.appendChild(like)
+
+					beritaList.appendChild(berita_box)
+				});
+
+			}
+		});
+
+		$('#search').keyup(function(){
+			var search = $(this).val()
+			var url = 'api/articles/search/'+search
+			var cekSearch = document.getElementById('hasil_search')
+			if(search == ''){
+			 	url = 'api/articles'
+				cekSearch.innerHTML = ""
+			}else{
+				url = 'api/articles/search/'+search
+				cekSearch.innerHTML = "Hasil Search"
+				console.log(url)
+			}
+			$.ajax({
+			url: url,
+			type: 'GET',
+			dataType: 'json',
+			success: function(data){
+
+				// console.log(data.data)
+				var beritaList = document.getElementsByClassName('beritaList')[0]
+				beritaList.innerHTML = ''
 				data.data.forEach(element => {
 					console.log(element)
 					
@@ -161,7 +227,10 @@
 
 			}
 		});
+				
+		})
 	})
+
 
 </script>
 
