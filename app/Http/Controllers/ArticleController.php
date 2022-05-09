@@ -7,7 +7,7 @@ use App\Models\Article;
 use App\Models\Topic;
 use App\Models\Like;
 use App\Models\User;
-use App\Models\komentar;
+use App\Models\Komentar;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
