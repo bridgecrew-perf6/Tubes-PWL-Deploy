@@ -6,7 +6,8 @@
       <div class="row align-items-center justify-content-center vh-100">
         <div class="col-md-7">
           <img src="{{asset('storage/images/HealthyMed.png')}}" class="w-50">
-          <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem a laoreet platea mollis lacus. Eu sed amet vivamus commodo, amet, orci diam mauris.</h3>
+          <h3>Aplikasi “Healthymed” atau Healthy Media merupakan sebuah aplikasi yang berbentuk seperti forum pengguna untuk membagikan artikel dan sharing mengenai hal-hal yang berkaitan dengan pola hidup sehat.
+</h3>
         </div>
         <div class="col-md-5">
           {{-- <form class="login-form" action="/login" method="post">
