@@ -6,35 +6,39 @@
 
 <div class="beritalist">
     <div class="berita" style="margin-top: 100px !important;">
-    <div class="tags">
+    <div class="tagss">
         <h4> Tags : </h4>
+    </div>
+    <div class="tags">
+        <ul>
     @if ($topic->food === 1)
-        <p>Food</p>
+        <li class="textpd"> Food </li>
     @endif
     @if ($topic->sports === 1)
-        <p>Sports</p>
+        <li class="textpd"> Sports </li>
     @endif
     @if ($topic->yoga === 1)
-        <p>yoga</p>
+        <li class="textpd"> Yoga </li>
     @endif
     @if ($topic->therapy === 1)
-        <p>therapy</p>
+        <li class="textpd"> Therapy </li>
     @endif
     @if ($topic->workout === 1)
-        <p>workout</p>
+        <li class="textpd"> Workout </li>
     @endif
     @if ($topic->nature === 1)
-        <p>nature</p>
+        <li class="textpd"> Nature </li>
     @endif
     @if ($topic->diet === 1)
-        <p>diet</p>
+        <li class="textpd"> Diet </li>
     @endif
     @if ($topic->lifestyle === 1)
-        <p>lifestyle</p>
+        <li class="textpd"> Lifestyle </li>
     @endif
     @if ($topic->psychology === 1)
-        <p>psychology</p>
+        <li class="textpd"> Psychology </li>
     @endif
+</ul>
     </div>
 
     @if(auth()->user()->id === $data->user_id)

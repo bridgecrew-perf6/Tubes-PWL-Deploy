@@ -11,12 +11,15 @@ class Topic extends Model
 
     protected $fillable = [
         'article_id',   
-        'healthy', 
-        'sports', 
-        'politics', 
-        'entertainment', 
-        'technology', 
-        'science'
+        'food',
+        'sports',
+        'yoga',
+        'therapy',
+        'workout',
+        'nature',
+        'diet',
+        'lifestyle',
+        'psychology',
     ];
 
     protected $guarded=['id'];

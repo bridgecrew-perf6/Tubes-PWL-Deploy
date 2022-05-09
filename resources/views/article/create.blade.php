@@ -35,7 +35,7 @@
             </div>
 
 
-            <button class="btn btn-outline-danger" type="submit" class="tombol">Buat Laporan</button>
+            <button class="btn btn-outline-danger" type="submit" class="tombol">Buat Article</button>
         </form>
     </div>
 </body>

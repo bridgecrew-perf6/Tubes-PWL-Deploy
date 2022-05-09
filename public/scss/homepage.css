@@ -522,6 +522,20 @@ textarea {
 
 .tags {
   color: #FF6363 !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  /* align-items: flex-start;
+  text-align: left; */
+}
+/* 
+.textpad{
+  padding-left: 10px;
+  margin-left: 5px;
+} */
+
+.tagss {
+  color: #FF6363 !important;
 }
 
 @media only screen and (max-width: 766px) {

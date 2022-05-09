@@ -1,4 +1,8 @@
+@extends('layouts.navbar')
+@section('content')
+
 @auth
+<body>
 <form id="form" method="POST" enctype="multipart/form-data">
     @csrf
     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
@@ -57,14 +61,6 @@
         @else
         <input type="checkbox" name="psychology" value="0" ><label for="psychology">Psychology</label>
         @endif
-
-        {{-- <select id="topic" class="topic" name="topic" >
-            <option value="" selected disabled hidden>Pilih topik</option>
-            <option value="healthy">healthy</option>
-            <option value="food">food</option>
-            <option value="sport">sport</option>
-            <option value="sahur">sahur</option>
-        </select> --}}
         <div class="pesan"></div>
     </div>
 
@@ -78,16 +74,15 @@
         <div class="pesan"></div>
     </div>
     
-
     <div class="gambar">
         <input type="file" id="gambar" name="gambar">
-        {{-- <input type="hidden" id="hidden_gambar" name="hidden_gambar" value="{{ $data->gambar }}"> --}}
         <div class="pesan"></div>
     </div>
     
 
-    <button class="laporbtn" type="submit" class="tombol" >Buat Laporan</button>
+    <button class="btn btn-outline-danger" type="submit" class="tombol">Edit Article</button>
 </form>
+</body>
 
 @else
 
