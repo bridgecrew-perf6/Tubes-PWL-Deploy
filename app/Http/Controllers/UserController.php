@@ -66,4 +66,30 @@ class UserController extends Controller
         return redirect('/');
 
     }
+
+    public function profiledetail(){
+        $profile = User::find(Auth::user()->id);
+        return view('user.profiledetail', compact('profile'));
+    }
+
+    public function editprofile(Request $request){
+        $validateData = $request->validate([
+            'name'=>'required|max:255',
+            'email'=>'required|email:dns|unique:users',
+            'password'=>'required|min:5|max:255'
+        ]);
+        dd("wo");
+
+        
+        $data_baru = array(
+            'name' => $request->name,
+            'email' => $request->email
+        );
+
+        // $data_baru->password = Hash::make($data_baru->password);
+        $profile = User::find(Auth::user()->id);
+        $profile->update($data_baru);
+        return redirect('/');
+        // $request->session()->flash('success', 'registrasi berhasil');
+    }
 }

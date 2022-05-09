@@ -4,43 +4,59 @@
     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
     <div class="form-topic">
 
-        @if ($topic->healthy === 1)
-        <input type="checkbox" name="healthy" checked ><label for="healthy">Healthy</label>
+        @if ($topic->food === 1)
+        <input type="checkbox" name="food" checked ><label for="food">Food</label>
         @else
-        <input type="checkbox" name="healthy" value="0" ><label for="healthy">Healthy</label>
+        <input type="checkbox" name="food" value="0" ><label for="food">Food</label>
         @endif
-        
+
         @if ($topic->sports === 1)
         <input type="checkbox" name="sports" checked ><label for="sports">Sports</label>
         @else
         <input type="checkbox" name="sports" value="0" ><label for="sports">Sports</label>
         @endif
 
-        @if ($topic->politics === 1)
-        <input type="checkbox" name="politics" checked ><label for="politics">politics</label>
+        @if ($topic->yoga === 1)
+        <input type="checkbox" name="yoga" checked ><label for="yoga">Yoga</label>
         @else
-        <input type="checkbox" name="politics" value="0" ><label for="politics">politics</label>
+        <input type="checkbox" name="yoga" value="0" ><label for="yoga">Yoga</label>
         @endif
 
-        @if ($topic->entertainment === 1)
-        <input type="checkbox" name="entertainment" checked ><label for="entertainment">entertainment</label>
+        @if ($topic->therapy === 1)
+        <input type="checkbox" name="therapy" checked ><label for="therapy">Therapy</label>
         @else
-        <input type="checkbox" name="entertainment" value="0" ><label for="entertainment">entertainment</label>
+        <input type="checkbox" name="therapy" value="0" ><label for="therapy">Therapy</label>
         @endif
 
-        @if ($topic->technology === 1)
-        <input type="checkbox" name="technology" checked ><label for="technology">technology</label>
+        @if ($topic->workout === 1)
+        <input type="checkbox" name="workout" checked ><label for="workout">Workout</label>
         @else
-        <input type="checkbox" name="technology" value="0" ><label for="technology">technology</label>
+        <input type="checkbox" name="workout" value="0" ><label for="workout">Workout</label>
         @endif
 
-        @if ($topic->science === 1)
-        <input type="checkbox" name="science" checked ><label for="science">science</label>
+        @if ($topic->nature === 1)
+        <input type="checkbox" name="nature" checked ><label for="nature">Nature</label>
         @else
-        <input type="checkbox" name="science" value="0" ><label for="science">science</label>
+        <input type="checkbox" name="nature" value="0" ><label for="nature">Nature</label>
         @endif
 
-        
+        @if ($topic->diet === 1)
+        <input type="checkbox" name="diet" checked ><label for="diet">Diet</label>
+        @else
+        <input type="checkbox" name="diet" value="0" ><label for="diet">Diet</label>
+        @endif
+
+        @if ($topic->lifestyle === 1)
+        <input type="checkbox" name="lifestyle" checked ><label for="lifestyle">Lifestyle</label>
+        @else
+        <input type="checkbox" name="lifestyle" value="0" ><label for="lifestyle">Lifestyle</label>
+        @endif
+
+        @if ($topic->psychology === 1)
+        <input type="checkbox" name="psychology" checked ><label for="psychology">Psychology</label>
+        @else
+        <input type="checkbox" name="psychology" value="0" ><label for="psychology">Psychology</label>
+        @endif
 
         {{-- <select id="topic" class="topic" name="topic" >
             <option value="" selected disabled hidden>Pilih topik</option>

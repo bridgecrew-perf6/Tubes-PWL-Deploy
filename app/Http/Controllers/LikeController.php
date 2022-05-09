@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Like;
-use App\Models\User;
 use App\Models\Article;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,6 +44,7 @@ class LikeController extends Controller
         foreach ($likes as $like) {
             $temp = Article::where('id', $like->article_id)->first();
             $temp->author = User::find($temp->user_id);
+            $temp->total_like = Like::where('article_id', $temp->id)->count();
             array_push($article, $temp);
         }
         

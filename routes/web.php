@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TopicController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [HomeController::class, 'index'])->middleware('auth');
 Route::get('/api/articles', [HomeController::class, 'fetch'])->middleware('auth');
+Route::get('/api/articles/topic/{topic}', [TopicController::class, 'fetch'])->middleware('auth');
 Route::get('/api/liked', [LikeController::class, 'fetch'])->middleware('auth');
 
 Route::get('/login', [UserController::class, 'loginView'])->name('loginrollback')->middleware('guest'); //cek di middleware.authenticate
@@ -27,15 +29,22 @@ Route::post('/logout', [UserController::class, 'logout']);
 Route::get('/register', [UserController::class, 'register'])->middleware('guest');
 Route::post('/register', [UserController::class, 'store']);
 
+Route::get('/profile', [UserController::class, 'profiledetail'])->middleware('auth');
+Route::post('/profile', [UserController::class, 'editprofile'])->middleware('auth');
+
 Route::get('/article/create', [ArticleController::class, 'create'])->middleware('auth');
 Route::post('/article/create', [ArticleController::class, 'store'])->middleware('auth');
 Route::get('/article/id/{id}', [ArticleController::class, 'show'])->middleware('auth');
 Route::get('/article/edit/id/{id}', [ArticleController::class, 'edit'])->middleware('auth');
 Route::post('/article/edit/id/{id}', [ArticleController::class, 'update'])->middleware('auth');
 Route::get('/article/delete/id/{id}', [ArticleController::class, 'destroy'])->middleware('auth');
+Route::get('/my_article', [ArticleController::class, 'my_article'])->middleware('auth');
+Route::get('/api/get_myarticle', [ArticleController::class, 'get_myarticle'])->middleware('auth');
 
 Route::get('/like/{article_id}', [LikeController::class, 'like'])->middleware('auth');
 Route::get('/liked', [LikeController::class, 'show'])->middleware('auth');
 
 Route::get('/komentar/send/{article_id}', [ArticleController::class, 'komentar'])->middleware('auth');
 Route::get('/api/articles/search/{id}', [HomeController::class, 'search'])->middleware('auth');
+
+Route::get('/topic/{topic}', [TopicController::class, 'show'])->middleware('auth');
