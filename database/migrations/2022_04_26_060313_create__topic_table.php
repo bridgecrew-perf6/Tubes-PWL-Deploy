@@ -16,12 +16,15 @@ return new class extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->id()->unique();
             $table->string('article_id');
-            $table->boolean('healthy')->default(false);
+            $table->boolean('food')->default(false);
             $table->boolean('sports')->default(false);
-            $table->boolean('politics')->default(false);
-            $table->boolean('entertainment')->default(false);
-            $table->boolean('technology')->default(false);
-            $table->boolean('science')->default(false);
+            $table->boolean('yoga')->default(false);
+            $table->boolean('therapy')->default(false);
+            $table->boolean('workout')->default(false);
+            $table->boolean('nature')->default(false);
+            $table->boolean('diet')->default(false);
+            $table->boolean('lifestyle')->default(false);
+            $table->boolean('psychology')->default(false);
 
             $table->timestamps();
         });
